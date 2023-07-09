@@ -1,0 +1,512 @@
+/* START GLOBAL RULES */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:root {
+    --main-color:#045C44;
+    --main-color-alt:#6CC494;
+    --main-color-clear:#ddd;
+
+}
+
+html {
+     scroll-behavior: smooth;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* SMALL SCREEN*/
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+/* LARGE SCREEN*/
+@media (min-width: 992px) {
+    .container {
+        width: 950px;
+    } 
+}
+/* MEDIUM SCREEN*/
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* END GLOBAL RULES */
+
+/* START HEADER */                   
+header {
+    background-color: white;
+    position: relative;
+    box-shadow: 0 0 10px #ddd;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+header .logo {
+    color: #045C44;
+    font-size: 30px;
+    font-family: 'Reem Kufi', sans-serif;
+    font-weight: bold;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+@media (max-width: 767px) {
+    header .logo {
+        width: 100%;
+        height: 50px;
+    }
+}
+
+header .main-nav {
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    header .container{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .landing {
+        display: none;
+    }
+}
+
+header .main-nav > li > a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    position: relative;
+    color: black;
+    padding: 0 30px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+header .main-nav > li > a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: var(--main-color);
+    top: 0;
+    left: -100%;
+    transition: 0.4s;
+}
+header .main-nav > li > a:hover {
+    color: var(--main-color);
+    background-color: #fafafa;
+}
+
+header .main-nav > li > a:hover::before {
+    left: 0;
+}
+/* END hEADER */
+
+/* START LANDING */
+.landing {
+    position: relative;
+}
+
+.landing::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ECECEC;
+    z-index: -1;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+}
+
+.landing .container {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    padding-bottom: 120px;
+}
+
+.landing .text {
+    flex: 1;
+}
+@media (max-width: 991px) {
+    .landing .text {
+        text-align: center;
+    }
+}
+
+.landing .text h1 {
+    font-size: 40px;
+    margin: 0;
+    letter-spacing: -2px;
+    font-family: 'Reem Kufi', sans-serif;
+}
+@media (max-width: 767px) {
+    .landing .text h1 {
+        font-size: 28px;
+    }
+}
+
+.landing .text p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 5px 0 0;
+    color:var(--main-color);
+    max-width: 500px;
+
+}
+@media (max-width: 991px) {
+    .landing .text p {
+        margin: 10px auto;
+    }
+}
+@media (max-width: 767px) {
+    .landing .text p {
+        font-size: 14px;
+    }
+}
+
+.landing .image img {
+    position: relative;
+    width: 400px;
+    max-width: 100%;
+    animation: up-and-down 5s linear infinite;
+}
+@media (max-width: 991px) {
+    .landing .image {
+        display: none;
+    }
+}
+
+.landing .go-down {
+    color: var(--main-color);
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translatex(-50%);
+    transition: 0.4s;
+}
+
+.landing .go-down:hover {
+    color: black;
+}
+
+.landing .go-down i {
+    animation: bouncing 1.5s infinite;
+}
+/* END LANDING */
+/* START Animation */
+@keyframes up-and-down {
+    0%,
+    100% {
+        top:0
+    }
+    50% {
+        top: -50px;
+    }
+}
+
+@keyframes bouncing {
+    0%,
+    10%,
+    20%,
+    50%,
+    80%,
+    100%{
+        transform: translateY(0);
+    }
+    40%,
+    60%{
+        transform: translateY(-15px);
+    }
+    
+}
+@keyframes left-move{
+    50%{
+        left: 0;
+        width: 12px;
+        height: 12px;
+    }
+    100%{
+        left: 0;
+        border-radius: 0;
+        width: 50%;
+        height:100%;
+    }
+}
+@keyframes right-move{
+    50%{
+        right: 0;
+        width: 12px;
+        height: 12px;
+    }
+    100%{
+        right: 0;
+        border-radius: 0;
+        width: 50%;
+        height:100%;
+    }
+}
+
+/* =============================== */
+.main-title {
+    text-transform: uppercase;
+    margin:0 auto 80px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    font-size: 30px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: var(--main-transition);
+  }
+
+.main-title::after,
+.main-title::before{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    transform: translatey(-50%);
+    top: 50%;
+}
+.main-title::after{
+    right: -30px;
+}
+.main-title::before{
+    left: -30px;
+}
+.main-title:hover::before {
+    z-index: -1;
+    animation: left-move 0.5s linear forwards;
+}
+.main-title:hover::after {
+    z-index: -1;
+    animation: right-move 0.5s linear forwards;
+}
+.main-title:hover{
+    border: 2px solid white;
+    color: white;
+    transition-delay: 0.5s;
+}
+.quran .container .pragOne{
+    text-align: center;
+    font-size: 32px;
+    font-family: 'Amiri', serif;
+    font-weight: 700;
+}
+.quran .container .pragTwo{
+    padding-left: 300px;
+    color: #045C44;
+}
+.quran .container .sora{
+    font-size: larger;
+    color: #045C44;
+}
+.quran .container .box-card{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(360px,1fr));
+    gap: 55px;
+    justify-items: center;
+
+}
+.quran .box-card .card{
+    max-width: 300px;
+    box-shadow: 0 0 10px #ddd;
+    border-radius: 12px;
+    padding: 0 30px;
+    overflow: hidden;
+    overflow: hidden;
+    transition: 0.4s;
+    color: black;
+    width: 300px;
+    position: relative;
+}
+.quran .box-card .card::before{
+    content: "";
+    position: absolute;
+    width:0;
+    height: 4px;
+    background-color: var(--main-color);
+    top: 0;
+    left: 0;
+    transition: 0.4s;
+}
+.quran .box-card .card:hover::before{
+    width: 100%;
+}
+.quran .box-card .card:hover{
+    color: var(--main-color);
+    background-color: var(--main-color-clear);
+}
+.quran .box-card .card a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+
+}
+.quran .box-card .card a .num{
+    text-align: left;
+    padding-right: 5px;
+    font-size: 24px;
+    color: var(--main-color);
+    font-family: 'Anton', sans-serif;
+}
+.quran .box-card .card a .name{
+    font-size: 22px;
+}
+
+
+@media (min-width: 992px) {
+    .num {
+        text-align: left;
+        padding-right: 5px;
+        font-size: 20px;
+        color: var(--main-color);
+        font-family: 'Anton', sans-serif;
+    
+    }
+    
+    .name {
+        font-size: 22px;
+        
+    }
+    
+    .line a
+    {
+        text-align: center;
+        min-width: 300px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 767px) {
+    .quran .pragOne{
+        line-height: 57.5px;
+    }
+    .num {
+        text-align: left;
+        padding-right: 5px;
+        font-size: 14px;
+        color: var(--main-color);
+        font-family: 'Anton', sans-serif;
+    
+    }
+    
+    .name {
+        font-size: 18px;
+    }
+}
+@media (max-width:400px){
+    .quran .container .box-card{
+        grid-template-columns: repeat(auto-fill,minmax(277px,1fr));
+    }
+    .quran .container .pragTwo{
+        padding: 0;
+    }
+    .quran .box-card .card{
+        width: 260px;
+    }
+}
+/* start footer */
+
+.last-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+  }
+  .last-nav > li > a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 72px;
+    position: relative;
+    color: black;
+    padding: 0 30px;
+    overflow: hidden;
+    transition: 0.4s;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .last-nav > li > a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background-color: var(--main-color);
+    top: 0;
+    left: -100%;
+    transition: 0.4s;
+  }
+  .last-nav > li > a:hover {
+    color: var(--main-color);
+    background-color: var(--main-color-clear);
+  }
+  
+.last-nav > li > a:hover::before {
+    left: 0;
+}
+
+  
+footer {
+    background-color:white;
+    position:relative;
+    -moz-box-shadow: 0 0 10px #ddd;
+    box-shadow: 0 0 10px #ddd;
+    width: 100%;
+    padding: 1px;
+}
+
+footer .container {
+    text-align: center;
+}
+footer .container .dad {
+    font-size: 12px;
+}
+
+h4 {
+    font-family: 'Reem Kufi', sans-serif;
+    font-size: 28px;
+    padding-bottom: 30px;
+    color: #045C44;
+}
+/* end footer */
